@@ -60,9 +60,14 @@ nav {
 
 .menu-item {
   margin-right: 50px;
+  padding-bottom: 5px;
   cursor: pointer;
   color: lightgray;
   font-weight: 400;
+}
+
+.active-menu {
+  border-bottom: 3px solid green;
 }
 
 .slider {

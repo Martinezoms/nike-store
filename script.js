@@ -91,7 +91,21 @@ const products = [
 
 let chosenProduct = products[0];
 
-menuItems.forEach((item, i) => {
+let activeMenu = chosenProduct.title;
+
+console.log("active =>", activeMenu);
+
+function initialActiveMenu() {
+  if (activeMenu === menuItems[0].id) {
+    menuItems[0].classList.add("active-menu");
+  } else {
+    menuItems[0].classList.remove("active-menu");
+  }
+}
+initialActiveMenu();
+console.log(menuItems);
+
+Array.from(menuItems).forEach((item, i) => {
   item.addEventListener("click", () => {
     // change the current slide
     wrapper.style.transform = `translateX(${-100 * i}vw)`;
@@ -99,10 +113,20 @@ menuItems.forEach((item, i) => {
     // change the chose product
     chosenProduct = products[i];
 
+    // change active menu variable
+    activeMenu = chosenProduct.title;
+
     // change text of current product
     currentProductTitle.textContent = chosenProduct.title;
     currentProductPrice.textContent = `$${chosenProduct.price}`;
     currentProductImg.src = chosenProduct.colors[0].img;
+
+    if (activeMenu === item.id) {
+      menuItems.forEach((item) => item.classList.remove("active-menu"));
+      item.classList.add("active-menu");
+    } else {
+      item.classList.remove("active-menu");
+    }
 
     // change the color box for each product
     currentProductColors.forEach((color, i) => {
