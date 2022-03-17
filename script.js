@@ -93,8 +93,6 @@ let chosenProduct = products[0];
 
 let activeMenu = chosenProduct.title;
 
-console.log("active =>", activeMenu);
-
 function initialActiveMenu() {
   if (activeMenu === menuItems[0].id) {
     menuItems[0].classList.add("active-menu");
@@ -103,7 +101,6 @@ function initialActiveMenu() {
   }
 }
 initialActiveMenu();
-console.log(menuItems);
 
 menuItems.forEach((item, i) => {
   item.addEventListener("click", () => {
