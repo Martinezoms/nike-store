@@ -105,7 +105,7 @@ function initialActiveMenu() {
 initialActiveMenu();
 console.log(menuItems);
 
-Array.from(menuItems).forEach((item, i) => {
+menuItems.forEach((item, i) => {
   item.addEventListener("click", () => {
     // change the current slide
     wrapper.style.transform = `translateX(${-100 * i}vw)`;
